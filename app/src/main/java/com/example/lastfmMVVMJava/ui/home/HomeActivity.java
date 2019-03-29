@@ -2,6 +2,7 @@ package com.example.lastfmMVVMJava.ui.home;
 
 import android.app.SearchManager;
 import android.content.Context;
+import android.content.Intent;
 import android.databinding.DataBindingUtil;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -41,7 +42,16 @@ public class HomeActivity extends AppCompatActivity {
 
         homeViewModel.getAlbumsObservable().observe(this, albumsAdapter::setData);
 
-        homeViewModel.performSearch("Test");
+
+
+    }
+
+    @Override
+    protected void onNewIntent(Intent intent) {
+        super.onNewIntent(intent);
+        if (intent.getAction() != null && intent.getAction().equals(Intent.ACTION_SEARCH)) {
+            homeViewModel.performSearch(intent.getStringExtra(SearchManager.QUERY));
+        }
     }
 
     @Override

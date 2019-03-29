@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">LastFM</string>
+    <string name="search_hint">\"please enter an album name\"</string>
 </resources>
