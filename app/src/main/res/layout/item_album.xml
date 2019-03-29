@@ -6,11 +6,17 @@
         <variable
             name="album"
             type="com.example.lastfmMVVMJava.data.albumResults.Album" />
+
+        <variable
+            name="listener"
+            type="com.example.lastfmMVVMJava.ui.home.OnAlbumSelectedListener" />
+
     </data>
 <android.support.v7.widget.CardView
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     app:cardUseCompatPadding="true"
+    android:onClick="@{()->listener.onAlbumSelected(album)}"
     >
 
 <android.support.constraint.ConstraintLayout
