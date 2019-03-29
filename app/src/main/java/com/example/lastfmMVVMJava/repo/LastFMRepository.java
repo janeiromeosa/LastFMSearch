@@ -18,4 +18,9 @@ public class LastFMRepository implements DataSource {
     public Single<List<Album>> getAlbumSearchResults(String albumSearchQuery) {
         return remoteDataSource.getAlbumSearchResults(albumSearchQuery);
     }
+
+    @Override
+    public Single<com.example.lastfmMVVMJava.data.albumDetails.Album> getAlbumDetails(String albumName, String artistName) {
+        return remoteDataSource.getAlbumDetails(albumName, artistName);
+    }
 }

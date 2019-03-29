@@ -11,10 +11,12 @@ import android.support.v7.widget.SearchView;
 import android.view.Menu;
 import android.widget.Toast;
 
+import com.example.lastfmMVVMJava.Constants;
 import com.example.lastfmMVVMJava.MyApplication;
 import com.example.lastfmMVVMJava.R;
 import com.example.lastfmMVVMJava.data.albumResults.Album;
 import com.example.lastfmMVVMJava.databinding.ActivityMainBinding;
+import com.example.lastfmMVVMJava.ui.albumDetails.AlbumDetailsActivity;
 import com.example.lastfmMVVMJava.ui.home.di.DaggerHomeComponent;
 import com.example.lastfmMVVMJava.ui.home.di.HomeModule;
 
@@ -69,6 +71,9 @@ public class HomeActivity extends AppCompatActivity implements OnAlbumSelectedLi
 
     @Override
     public void onAlbumSelected(Album album) {
-        Toast.makeText(this, album.getName(), Toast.LENGTH_SHORT).show();
+        Intent intent = new Intent(this, AlbumDetailsActivity.class);
+        intent.putExtra(Constants.KEY_ALBUM_NAME, album.getName());
+        intent.putExtra(Constants.KEY_ARTIST_NAME, album.getArtist());
+        startActivity(intent);
     }
 }
