@@ -30,8 +30,10 @@ public class HomeActivity extends AppCompatActivity implements OnAlbumSelectedLi
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
         ActivityMainBinding binding = DataBindingUtil
                 .setContentView(this, R.layout.activity_main);
+
         DaggerHomeComponent.builder()
                 .appComponent(((MyApplication)getApplication()).getAppComponent())
                 .homeModule(new HomeModule(this))
